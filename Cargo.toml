@@ -1,0 +1,42 @@
+[package]
+name = "shred-zdn"
+version = "0.1.0"
+edition = "2024"
+
+# cargo r --profile=deploy
+[profile.deploy]
+inherits = "release"
+opt-level = 3
+lto="fat" 
+codegen-units = 1
+
+[dependencies]
+# log
+env_logger = "~0.11"
+log = "0.4"
+ahash = "0.8"
+clap = { version = "~4.5", features = ["derive"] }
+# basic
+crossbeam-channel = "~0.5"
+enum-map = "~2.7"
+nohash-hasher = "~0.2"
+scopeguard = "~1.2"
+# sniffer
+pcap = "2.3"
+# solana
+solana-sdk = "=1.18.22"
+solana-streamer = "=1.18.22"
+solana-ledger = "=1.18.22"
+
+chrono = "~0.4"
+reqwest = { version = "~0.11", features = ["blocking", "json", "rustls-tls"] }
+tokio = { version = "~1.45", features = ["macros", "rt", "rt-multi-thread", "net"] }
+futures = "0.3"
+rayon = "1.8"
+tonic = { version = "~0.10", features = ["tls", "tls-roots"] }
+# tonic dependencies
+hyper = { version = "~0.14", features = ["client", "http1", "http2"] }
+tower = "~0.4"
+
+# proto
+zdn-proto = { path = "./crates/custom_zdn-proto" } # zdn-related
