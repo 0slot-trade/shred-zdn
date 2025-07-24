@@ -13,17 +13,23 @@ The [0slot.trade](https://0slot.trade) Shred Distribution Network (shred-zdn) de
 ## 📦 Build
 
 ### Debug build
+
 ```bash
 cargo build
 ```
+
 ### Release build (optimized for deploy)
+
 ```bash
 cargo r --profile=deploy
 ```
+
 ## 🚀 Usage
+
 ```bash
 ./shred-zdn --help
 ```
+
 Receive Shreds from 0slot.trade
 
 Usage: shred-zdn [OPTIONS] --auth <AUTH> --port <PORT> --interface <INTERFACE> --sniffer-port <SNIFFER_PORT> --forwards <FORWARDS>...
