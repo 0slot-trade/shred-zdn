@@ -13,17 +13,17 @@ The [0slot.trade](https://0slot.trade) Shred Distribution Network (shred-zdn) de
 ## 📦 Build
 
 ### Debug build
-
+```bash
 cargo build
-
+```
 ### Release build (optimized for deploy)
-
+```bash
 cargo r --profile=deploy
-
+```
 ## 🚀 Usage
-
+```bash
 ./shred-zdn --help
-
+```
 Receive Shreds from 0slot.trade
 
 Usage: shred-zdn [OPTIONS] --auth <AUTH> --port <PORT> --interface <INTERFACE> --sniffer-port <SNIFFER_PORT> --forwards <FORWARDS>...
@@ -41,14 +41,14 @@ Options:
 ## Example:
 
 If your Solana validator is running locally:
-
+```bash
 sudo ./shred-zdn \
   --auth YOUR_AUTH_KEY \
   --port 18888 \
   --interface lo \
   --sniffer-port 8001 \
   --forwards 127.0.0.1:8001
-
+```
 ### Note:
 Assume shred-zdn is running on the same server with your Solana validator using TVU port 8001 as default, so set the parameter forwards to 127.0.0.1:8001.
 To find your Solana TVU port, run solana-validator contact-info (or agave-validator contact-info, depending on the client).
