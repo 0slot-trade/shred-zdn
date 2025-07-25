@@ -1,0 +1,12 @@
+syntax = "proto3";
+package types;
+
+message TxPropagationConfig {
+    repeated string trader_apis = 1;
+    repeated TxForwarder tx_forwarders = 2;
+}
+
+message TxForwarder {
+    string addr = 1;
+    repeated string supported_protocols = 2;
+} 

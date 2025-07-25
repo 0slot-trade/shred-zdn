@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+package relay;
+import "types.proto";
+
+service Relay {
+    rpc Register(RegisterRequest) returns (RegisterResponse);
+    rpc RefreshToken(RefreshTokenRequest) returns (RefreshTokenResponse);
+}
+
+message RegisterRequest {
+    string auth_header = 1;
+    string version = 2;
+    int64 server_port = 3;
+    // 添加 region 字段
+    string region = 4;
+}
+
+message RegisterResponse {
+    string udp_address = 1;
+    string jwt_token = 2;
+    types.TxPropagationConfig tx_propagation_config = 3;
+    // 添加msg字段
+    string msg =4;
+    map<string, string> region_host_map = 5; // region -> hostname
+}
+
+message RefreshTokenRequest {
+    string auth_header = 1;
+    string jwt_token = 2;
+}
+
+message RefreshTokenResponse {
+    string jwt_token = 1;
+}
